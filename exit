@@ -1,0 +1,32 @@
+[90m= [39m[34;4mIlluminate\Database\Eloquent\Collection[39;24m {#6894
+    [34mall[39m: [
+      [34;4mApp\Models\Brands\Brand[39;24m {#6896
+        [34mid[39m: [35m1[39m,
+        [34mname[39m: "[32mAdidas[39m",
+        [34mdescription[39m: "[32mAdidas brand.[39m",
+        [34mlogo_url[39m: "[32madidas_logo.jpeg[39m",
+        [34mimage_url[39m: "[32madidas_image.jpeg[39m",
+        [34mcreated_at[39m: "[32m2024-06-13 03:00:43[39m",
+        [34mupdated_at[39m: "[32m2024-06-16 00:29:54[39m",
+      },
+      [34;4mApp\Models\Brands\Brand[39;24m {#6897
+        [34mid[39m: [35m2[39m,
+        [34mname[39m: "[32mNike[39m",
+        [34mdescription[39m: "[32mNike brand.[39m",
+        [34mlogo_url[39m: "[32mnike_logo.png[39m",
+        [34mimage_url[39m: "[32mnike_image.png[39m",
+        [34mcreated_at[39m: "[32m2024-06-15 22:04:58[39m",
+        [34mupdated_at[39m: "[32m2024-06-16 00:30:57[39m",
+      },
+      [34;4mApp\Models\Brands\Brand[39;24m {#6898
+        [34mid[39m: [35m3[39m,
+        [34mname[39m: "[32mConverse[39m",
+        [34mdescription[39m: "[32mConverse brand.[39m",
+        [34mlogo_url[39m: "[32mconverse_logo-v1.png[39m",
+        [34mimage_url[39m: "[32mconverse_image.png[39m",
+        [34mcreated_at[39m: "[32m2024-06-15 22:05:24[39m",
+        [34mupdated_at[39m: "[32m2024-06-16 00:32:08[39m",
+      },
+    ],
+  }
+
