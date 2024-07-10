@@ -21,8 +21,8 @@ class CreateAdminUser extends Command
         ]);
 
         // Verificar el correo electrónico
-        $user->email_verified_at = now();
-        $user->save();
+        //$user->email_verified_at = now();
+        //$user->save();
 
         $this->info("User {$user->email} created successfully.");
     }
