@@ -20,6 +20,10 @@ class CreateAdminUser extends Command
             'password' => Hash::make($this->argument('password')),
         ]);
 
+        // Verificar el correo electrónico
+        $user->email_verified_at = now();
+        $user->save();
+
         $this->info("User {$user->email} created successfully.");
     }
 }
