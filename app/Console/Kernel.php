@@ -4,12 +4,22 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Console\Commands\CreateAdminUser; // Filamentphp Admin
 
 class Kernel extends ConsoleKernel
 {
     /**
      * Define the application's command schedule.
      */
+    /**
+     * The Artisan commands provided by your application.
+     *
+     * @var array
+     */
+    protected $commands = [
+        CreateAdminUser::class, // Agrega esta línea
+    ];
+
     protected function schedule(Schedule $schedule): void
     {
         // $schedule->command('inspire')->hourly();
