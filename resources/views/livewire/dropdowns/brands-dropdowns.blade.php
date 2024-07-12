@@ -15,9 +15,9 @@
     @endforeach
 
     <div class="flex flex-row px-2 my-4 text-purple-700 hover:text-purple-500 hover:cursor-pointer">
-        <p>
+        <a href="{{ route('brands') }}">
             All Brands
-        </p>
+        </a>
     </div>
 
 </div>

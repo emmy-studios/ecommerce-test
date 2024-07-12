@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Customers\Socialmedialink;
 use App\Models\Customers\Address;
 use App\Models\Orders\Order;
+use App\Models\Reviews\Review;
 
 class ProfileController extends Controller
 {
@@ -18,11 +19,12 @@ class ProfileController extends Controller
         $address = $user->address;
         $socialmediaurls = $user->socialmedialink;
         $wishlist = $user->wishlist;
-        $orders = $user->orders;        
+        $orders = $user->orders;    
+        $reviews = Review::where('user_id', '=', $user->id)->get();    
 
-        return view('accounts.profile.dashboard', compact('user', 'wishlist', 'address', 'orders', 'socialmediaurls'));
+        return view('accounts.profile.dashboard', compact('user', 'wishlist', 'address', 'orders', 'socialmediaurls', 'reviews'));
     }
- 
+  
     public function profileForm()
     {
         // Get User Information

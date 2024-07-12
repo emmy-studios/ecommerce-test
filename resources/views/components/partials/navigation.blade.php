@@ -17,7 +17,7 @@
                 <ul class="flex flex-row space-x-4">
                     <li><a wire:navigate href="{{ route('home') }}">Home</a></li>
                     <li><a wire:navigate href="{{ route('products') }}">Products</a></li>
-                    <li><a wire:navigate href="{{ route('contact.us') }}">Contact Us</a></li>
+                    <li><a wire:navigate href="{{ route('about.us') }}">About Us</a></li>
                     <li><a wire:navigate href="{{ route('news') }}">News</a></li>
 
                     {{--<button @click="productsShow = !productsShow">
@@ -129,7 +129,7 @@
         </div>
         
         <div class="flex flex-row px-4 py-2 bg-purple-600 text-white hover:bg-purple-500 hover:text-white">
-            <a wire:navigate href="{{ route('contact.us') }}">Contact Us</a>
+            <a wire:navigate href="{{ route('about.us') }}">About Us</a>
         </div>
         
         <!--<div class="flex flex-row px-4 py-2 bg-purple-600 text-white hover:bg-purple-500 hover:text-white">

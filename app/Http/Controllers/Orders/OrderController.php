@@ -101,6 +101,9 @@ class OrderController extends Controller
         $order->total = $subtotal; // Ajustar según los descuentos o impuestos
         $order->save();
 
+        // Send Email
+        
+
         return redirect()->route('dashboard')->with('success', 'Order created successfully.');
     }
 }
