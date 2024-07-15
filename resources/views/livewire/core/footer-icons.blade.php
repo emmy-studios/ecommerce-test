@@ -37,7 +37,7 @@
         </a>
     @endif
 
-    @if($socialmediaLinks $$ $socialmediaLinks->tiktok_url)
+    @if($socialmediaLinks && $socialmediaLinks->tiktok_url)
         <a 
             href="{{ $socialmediaLinks->tiktok_url }}" 
             class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-purple-500 dark:hover:text-purple-400" 
