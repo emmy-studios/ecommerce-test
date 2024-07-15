@@ -18,7 +18,9 @@ class CoreController extends Controller
     
     public function aboutUs()
     {
-        return view('pages.about-us');
+        $websiteInfo = Websiteinfo::first();
+        
+        return view('pages.about-us', ['websiteInfo' => $websiteInfo]);
     }
 
     public function contactPost(Request $request)
