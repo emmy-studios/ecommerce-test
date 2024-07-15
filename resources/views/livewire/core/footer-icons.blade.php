@@ -9,8 +9,16 @@
             <i class="fa-brands fa-twitter w-5 h-5"></i>
         </a>
     @endif
+<<<<<<< HEAD
 
+<<<<<<< HEAD
     @if($socialmediaLinks->instagram_url)
+=======
+=======
+ 
+>>>>>>> 7add6aab ("Add changes to deploy part-4")
+    @if($socialmediaLinks && $socialmediaLinks->instagram_url)
+>>>>>>> fa73447a ("Add changes to deploy part-4")
         <a 
             href="{{ $socialmediaLinks->instagram_url }}" 
             class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-purple-500 dark:hover:text-purple-400" 

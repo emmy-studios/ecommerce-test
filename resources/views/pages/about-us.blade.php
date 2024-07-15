@@ -51,12 +51,36 @@
                     
                     <div class="flex flex-row space-x-2">
                         <i class="fa-solid fa-envelope h-8 text-purple-700 hover:text-purple-300"></i>
+<<<<<<< HEAD
                         <p class="text-sm">luisfernandomorales930@gmail.com</p>
+=======
+<<<<<<< HEAD
+                        <p class="text-sm">{{ $websiteInfo->main_mail }}</p>
+=======
+                        @if($websiteInfo && $websiteInfo->main_mail)
+                            <p class="text-sm">{{ $websiteInfo->main_mail }}</p>
+                        @else
+                            <p class="text-sm">website@gmail.com</p>
+                        @endif 
+>>>>>>> 7add6aab ("Add changes to deploy part-4")
+>>>>>>> fa73447a ("Add changes to deploy part-4")
                     </div>
 
                     <div class="flex flex-row space-x-4">
                         <i class="fa-brands fa-whatsapp h-8 text-purple-700 hover:text-purple-300"></i>
+<<<<<<< HEAD
                         (+506) 1234 56789
+=======
+<<<<<<< HEAD
+                        {{ $websiteInfo->phone_code }} {{ $websiteInfo->phone_number }}
+=======
+                        @if($websiteInfo && $websiteInfo->phone_code && $websiteInfo->phone_number)
+                            {{ $websiteInfo->phone_code }} {{ $websiteInfo->phone_number }}
+                        @else
+                            (+506) 1234 5678
+                        @endif
+>>>>>>> 7add6aab ("Add changes to deploy part-4")
+>>>>>>> fa73447a ("Add changes to deploy part-4")
                     </div>
 
                 </ul>

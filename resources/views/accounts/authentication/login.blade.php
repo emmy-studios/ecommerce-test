@@ -9,7 +9,7 @@
         {{-- Header --}}
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
 
-            @if($websiteInfo->main_logo)
+            @if($websiteInfo && $websiteInfo->main_logo)
                 <img class="mx-auto h-20 w-auto"
                     src="{{ asset('storage/' . $websiteInfo->signup_logo) }}"
                     alt="Ecommerce Logo">

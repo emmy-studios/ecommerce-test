@@ -17,8 +17,19 @@ class CoreController extends Controller
     }
     
     public function aboutUs()
+<<<<<<< HEAD
     {   
         return view('pages.about-us');
+=======
+    {
+        $websiteInfo = Websiteinfo::first();
+<<<<<<< HEAD
+        
+=======
+
+>>>>>>> 7add6aab ("Add changes to deploy part-4")
+        return view('pages.about-us', ['websiteInfo' => $websiteInfo]);
+>>>>>>> fa73447a ("Add changes to deploy part-4")
     }
 
     public function contactPost(Request $request)

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'ecommerce | reset password')
+@section('title', config('app.name') . ' | reset password')
 
 @section('content')
     
@@ -9,9 +9,17 @@
         {{-- Header --}}
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
 
-            <img class="mx-auto h-20 w-auto"
-                src="{{ asset('assets/images/logo/logo_transparent.png') }}"
-                alt="Ecommerce Logo">
+            @if($websiteInfo && $websiteInfo->signup_logo)
+                <img class="mx-auto h-20 w-auto"
+                        src="{{ asset('storage/' . $websiteInfo->signup_logo) }}"
+                        alt="Ecommerce Logo">
+            @else
+                <img class="mx-auto h-20 w-auto"
+                    src="{{ asset('assets/images/logo/logo_transparent.png') }}"
+                    alt="Ecommerce Logo">
+
+            @endif
+
             <h2 
                 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight to-blue-500">
                 Reset Password
@@ -27,7 +35,11 @@
 
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
 
-            <form class="space-y-6" action="{{ route('reset.password.post', ['token' => $user->remember_token]) }}" method="POST"  enctype="multipart/form-data">
+            <form 
+                class="space-y-6" 
+                action="{{ route('reset.password.post', ['token' => $user->remember_token]) }}" 
+                method="POST"  
+                enctype="multipart/form-data">
                 
                 @csrf
 

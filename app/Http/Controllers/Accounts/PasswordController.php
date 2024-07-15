@@ -42,8 +42,11 @@ class PasswordController extends Controller
         $user = User::where('remember_token', '=', $token)->first();
         if (!empty($user)) {
             
-            $data['user'] = $user;
-            return view('accounts.password.reset-password', $data);
+            //$data['user'] = $user;
+            //$data['websiteInfo'] = Websiteinfo::first();
+            $websiteInfo = Websiteinfo::first();
+            
+            return view('accounts.password.reset-password', ['websiteInfo' => $websiteInfo, 'user' => $user]);
 
         } else {
             abort(404);
