@@ -1,7 +1,7 @@
 <div class="flex -mx-2">
 
         
-    @if($socialmediaLinks && $socialmediaLinks->twitter_url)
+    @if($socialmediaLinks->twitter_url)
         <a 
             href="{{ $socialmediaLinks->twitter_url }}" 
             class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-purple-500 dark:hover:text-purple-400" 
@@ -10,7 +10,7 @@
         </a>
     @endif
 
-    @if($socialmediaLinks && $socialmediaLinks->instagram_url)
+    @if($socialmediaLinks->instagram_url)
         <a 
             href="{{ $socialmediaLinks->instagram_url }}" 
             class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-purple-500 dark:hover:text-purple-400" 
@@ -19,7 +19,7 @@
         </a>
     @endif
         
-    @if($socialmediaLinks && $socialmediaLinks->facebook_url)
+    @if($socialmediaLinks->facebook_url)
         <a 
             href="{{ $socialmediaLinks->facebook_url }}" 
             class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-purple-500 dark:hover:text-purple-400" 
@@ -28,7 +28,7 @@
         </a>
     @endif
 
-    @if($socialmediaLinks && $socialmediaLinks->linkedin_url)
+    @if($socialmediaLinks->linkedin_url)
         <a 
             href="{{ $socialmediaLinks->linkedin_url }}" 
             class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-purple-500 dark:hover:text-purple-400" 
@@ -37,7 +37,7 @@
         </a>
     @endif
 
-    @if($socialmediaLinks && $socialmediaLinks->tiktok_url)
+    @if($socialmediaLinks->tiktok_url)
         <a 
             href="{{ $socialmediaLinks->tiktok_url }}" 
             class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-purple-500 dark:hover:text-purple-400" 
