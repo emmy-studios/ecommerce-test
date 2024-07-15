@@ -1,6 +1,6 @@
 <div>
 
-    @if($footerIcon && $footerIcon->main_logo)
+    @if($footerIcon->main_logo)
 
         <a href="{{ route('home') }}">
             <img 
