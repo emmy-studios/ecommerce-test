@@ -51,12 +51,12 @@
                     
                     <div class="flex flex-row space-x-2">
                         <i class="fa-solid fa-envelope h-8 text-purple-700 hover:text-purple-300"></i>
-                        <p class="text-sm">{{ $websiteInfo->main_mail }}</p>
+                        <p class="text-sm">luisfernandomorales930@gmail.com</p>
                     </div>
 
                     <div class="flex flex-row space-x-4">
                         <i class="fa-brands fa-whatsapp h-8 text-purple-700 hover:text-purple-300"></i>
-                        {{ $websiteInfo->phone_code }} {{ $websiteInfo->phone_number }}
+                        (+506) 1234 56789
                     </div>
 
                 </ul>
