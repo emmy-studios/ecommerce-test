@@ -1,6 +1,6 @@
 <div>
 
-    @if($navigationLogo && $navigationLogo->main_logo)
+    @if($navigationLogo->main_logo)
 
         <img 
             class="h-4 w-25" 
