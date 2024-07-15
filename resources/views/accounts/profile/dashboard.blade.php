@@ -122,6 +122,13 @@
 
                             <h2 class="text-xl font-bold mt-6 mb-2 pt-8 px-8 pb-4">Orders</h2>
 
+                            {{-- Flash Message --}}
+                            @if (session()->has('success'))
+                                <p class="text-red-600 px-8 py-4">
+                                    {{ session('success') }}
+                                </p>
+                            @endif
+
                             @if($orders->isEmpty())
 
                                 <p class="px-8 pb-2 text-red-700">
@@ -164,7 +171,12 @@
 
                                                 @endforeach
                                             </tbody>
+
                                         </table>
+                                        <div class="pt-2">
+                                            {{ $orders->links() }}
+                                        </div>
+                                        
                                     </div>
                                 </div>
 

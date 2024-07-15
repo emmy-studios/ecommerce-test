@@ -22,7 +22,7 @@
 
     <body>
         
-        <h1>ecommerce</h1>
+        <h1>{{ config('app.name') }}</h1>
 
         <h2>Thank you for subscribing!</h2>
         <p>We have successfully received your subscription request with the email: {{ $email }}</p>

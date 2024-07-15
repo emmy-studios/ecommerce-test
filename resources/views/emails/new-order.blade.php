@@ -16,8 +16,12 @@
                 text-align: center
             }
 
-            h2 {
-                font-size: x-large;
+            h2, h3 {
+                font-size: xx-large;
+                text-align: center
+            }
+            span {
+                font-size: large;
             }
 
         </style>
@@ -26,15 +30,42 @@
 
     <body>
         
-        <h1>ecommerce</h1>
+        <h1>{{ $data['website_name'] }}</h1>
 
         <h2>New Order Made!</h2>
 
         <p>
-            The user <span>first_name last_name</span> has made a new order.
+            The user <span>{{ $data['first_name'] }} {{ $data['last_name'] }}</span> has made a new order.
+        </p>
+
+        <h3>Order Resume</h3>
+        <p>
+            <span>Username: </span> {{ $data['username'] }}
         </p>
         <p>
-            Please, check the admin dashboard or the database record to continue the process.
+            <span>First Name: </span> {{ $data['first_name'] }}
+        </p>
+        <p>
+            <span>Last Name: </span> {{ $data['last_name'] }}
+        </p>
+        <p>
+            <span>Customer Email: </span> {{ $data['email'] }}
+        </p>
+        <p>
+            <span>Customer Phone: </span> {{ $data['user_phone'] }}
+        </p>
+        <p>
+            <span>Order Code: </span> {{ $data['order_code'] }}
+        </p>
+        <p>
+            <span>Order Sub Total: </span> ${{ $data['order_subtotal'] }}
+        </p>
+        <p>
+            <span>Order Total: </span> ${{ $data['total'] }}
+        </p>
+
+        <p>
+            Please, check the admin dashboard or the database record to verifyed and continue the process.
         </p>
 
     </body>

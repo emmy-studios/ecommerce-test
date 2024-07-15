@@ -6,6 +6,7 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Reviews\Review;
+use Livewire\Attributes\On;
 
 class ShowReviews extends Component
 {
@@ -13,10 +14,17 @@ class ShowReviews extends Component
     public $reviews;
     public $content;
 
+    #[On('review-deleted')]
+    public function refreshReviews($reviewId)
+    {
+        $this->loadReviews();
+    }
+
     public function mount($productId)
     {
         $this->productId = $productId;
-        $this->reviews = Review::where('product_id', $productId)->get();
+        //$this->reviews = Review::where('product_id', $productId)->get();
+        $this->loadReviews();
     }
 
     public function addReview()
@@ -40,8 +48,14 @@ class ShowReviews extends Component
         $this->content = '';
 
         // Reload reviews
-        $this->reviews = Review::where('product_id', $this->productId)->get();
+        //$this->reviews = Review::where('product_id', $this->productId)->get();
+        $this->loadReviews();
 
+    }
+
+    public function loadReviews()
+    {
+        $this->reviews = Review::where('product_id', $this->productId)->get();
     }
 
     public function render()

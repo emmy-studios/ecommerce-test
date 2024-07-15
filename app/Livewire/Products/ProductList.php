@@ -53,13 +53,13 @@ class ProductList extends Component
             $query->whereHas('categories', function($q) {
                 $q->where('category_id', $this->category_id);
             });
-        }
+        } 
         // Filter by brand
         if ($this->brand_id) {
             $query->where('brand_id', $this->brand_id);
         }
 
-        $products = $query->paginate(9);
+        $products = $query->paginate(9);  
 
         return view('livewire.products.product-list', ['products' => $products]);
     }

@@ -9,16 +9,21 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\Authentication\LoginRequest;
 use App\Http\Requests\Authentication\SignupRequest;
+use App\Models\Core\Websiteinfo;
 
 class AuthenticationController extends Controller
 {
     public function login()
     {
-        return view('accounts.authentication.login');
+        $websiteInfo = Websiteinfo::first();
+
+        return view('accounts.authentication.login', ['websiteInfo' => $websiteInfo]);
     }
     public function signup()
     {
-        return view('accounts.authentication.signup');
+        $websiteInfo = Websiteinfo::first();
+
+        return view('accounts.authentication.signup', ['websiteInfo' => $websiteInfo]);
     }
     public function register(SignupRequest $request)
     {

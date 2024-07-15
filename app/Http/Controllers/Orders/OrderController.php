@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Orders;
 
 use App\Http\Controllers\Controller;
+use App\Mail\NewOrderMail;
+use App\Models\Core\Websiteinfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -10,6 +12,8 @@ use App\Models\Shoppingcarts\Shoppingcart;
 use App\Models\Orders\Order;
 use App\Models\Orders\OrderItem;
 use App\Models\Customers\Address;
+use App\Models\Discounts\Discount;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -25,13 +29,14 @@ class OrderController extends Controller
     {   
         $user = Auth::user();
         $order = Order::findOrFail($id); 
-        $createdAt = $order->created_at->format('d F Y \a\t h:i A');        
+        $createdAt = $order->created_at->format('d F Y \a\t h:i A');    
+        $websiteInfo = Websiteinfo::first();    
 
         // Order Items
         $orderItems = OrderItem::where('order_id', $id)->get();
 
-        return view('pages.order-detail', compact('order', 'createdAt', 'user', 'orderItems'));
-    }
+        return view('pages.order-detail', compact('order', 'createdAt', 'user', 'orderItems', 'websiteInfo'));
+    }  
 
     public function create()
     {   
@@ -67,23 +72,25 @@ class OrderController extends Controller
     }
 
     public function store(Request $request)
-    {
-        // Obtener la información del usuario
+    {   
+        // Get the Customer Information
         $username = Auth::user()->name;
         $user_id = Auth::id();
         $timestamp = now()->format('YmdHis');
         $order_code =  $username . $timestamp;
 
-        // Crear la orden
+        // Create New Empty Order
         $order = new Order();
         $order->user_id = $user_id;
         $order->order_code = $order_code;
-        $order->subtotal = 0; // Calcular el subtotal más tarde
-        $order->total = 0;    // Calcular el total más tarde
+        $order->subtotal = 0;
+        $order->total = 0;
         $order->save();
-
-        // Crear los items de la orden
+        
+        // Add the Items to the Order
         $subtotal = 0;
+        $totalDiscount = 0;
+
         foreach ($request->products as $productId => $product) {
             $orderItem = new OrderItem();
             $orderItem->order_id = $order->id;
@@ -91,19 +98,47 @@ class OrderController extends Controller
             $orderItem->color = $product['color'];
             $orderItem->size = $product['size'];
             $orderItem->quantity = $product['quantity'];
+            $orderItem->unit_price = $product['price'];
             $orderItem->save();
 
-            $subtotal += $product['price'] * $product['quantity'];
+            $subtotal += $product['price'] * $product['quantity']; // Subtotal Before Discounts
+
+            // Check for Discount on the Product
+            $discount = Discount::whereHas('products', function ($query) use ($productId) {
+                $query->where('product_id', $productId);
+            })->first();
+
+            if ($discount) {
+                $discountAmount = ($product['price'] * $product['quantity']) * ($discount->discount_percentage / 100);
+                $totalDiscount += $discountAmount;
+            }
         }
 
-        // Actualizar los totales de la orden
+        // Update Total After the Discounts
         $order->subtotal = $subtotal;
-        $order->total = $subtotal; // Ajustar según los descuentos o impuestos
+        $order->total = $subtotal - $totalDiscount; 
         $order->save();
 
-        // Send Email
-        
+        // Send Email to the Admin
+        $websiteInfo = Websiteinfo::first();
+        $user = Auth::user();
+        $data = [
+            'username' => $user->name,
+            'first_name' => $user->first_name,
+            'last_name' => $user->last_name,
+            'email' => $user->email,
+            'user_phone' => $user->phone_code . ' ' . $user->phone_number,
+            'order_code' => $order->order_code,
+            'order_subtotal' => $order->subtotal,
+            'total' => $order->total,
+            'website_name' => $websiteInfo->website_name,
+        ]; 
+        Mail::to($websiteInfo->main_mail)->send(new NewOrderMail($data));
 
-        return redirect()->route('dashboard')->with('success', 'Order created successfully.');
+        return redirect()->route('dashboard')
+            ->with('success', 'New Order Created Successfully. Click on details for invoice and check email!');
     }
+
+
+
 }

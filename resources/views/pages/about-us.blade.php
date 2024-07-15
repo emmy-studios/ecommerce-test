@@ -28,16 +28,41 @@
                                 for you to manage your products with ease, allowing you to focus on what you love: fashion 
                                 and your customers.
                             </p>
-                            <p class="mt-4 text-gray-600"> 
+                            <p class="my-4 text-gray-600"> 
                                 From starting on Instagram to offering a professional shopping experience on our 
                                 platform, we're here to support your growth.
                             </p>
+
                         </div>
                     </div>
                 </div>
             </div>
     
         </section>
+
+
+        <section class="mx-4">
+            <div
+                class="mx-auto max-w-sm mt-20 border-4 border-purple-600 shadow shadow-purple-600/100 p-4 md:p-10 flex flex-col items-center justify-center text-center">
+               
+                <p class="text-purple-900 text-xl md:text-2xl font-bold border-b-4 border-b-purple-300">Send Us a Message</p>
+        
+                <ul class="flex flex-col items-center justify-center text-center mt-5 space-y-4">
+                    
+                    <div class="flex flex-row space-x-2">
+                        <i class="fa-solid fa-envelope h-8 text-purple-700 hover:text-purple-300"></i>
+                        <p class="text-sm">luisfernandomorales930@gmail.com</p>
+                    </div>
+
+                    <div class="flex flex-row space-x-4">
+                        <i class="fa-brands fa-whatsapp h-8 text-purple-700 hover:text-purple-300"></i>
+                        (+506) 1234 56789
+                    </div>
+
+                </ul>
+            </div>
+        </section>
+
 
         <section>
 

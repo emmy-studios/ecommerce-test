@@ -7,13 +7,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ForgotPasswordMail;
+use App\Models\Core\Websiteinfo;
 use App\Models\User;
 
 class PasswordController extends Controller
 {
     public function forgot()
     {
-        return view('accounts.password.forgot-password');
+        $websiteInfo = Websiteinfo::first();
+
+        return view('accounts.password.forgot-password', ['websiteInfo' => $websiteInfo]);
     }
 
     public function forgotPassword(Request $request)

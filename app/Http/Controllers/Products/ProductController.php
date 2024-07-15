@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Products\Product;
 
 use App\Http\Controllers\Controller;
+use App\Models\Discounts\Discount;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -24,6 +25,9 @@ class ProductController extends Controller
     {
         $product = Product::with(['productImages', 'productDetails.color', 'productDetails.size'])->findOrFail($id);
 
-        return view('pages.product-detail', compact('product'));
+        $uniqueColors = $product->productDetails->whereNotNull('color')->unique('color.product_color')->values();
+
+        return view('pages.product-detail', compact('product', 'uniqueColors'));
     }
 } 
+ 

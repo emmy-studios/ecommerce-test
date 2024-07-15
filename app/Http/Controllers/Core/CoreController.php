@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Core;
 
 use App\Http\Controllers\Controller;
 use App\Mail\ContactusMail;
+use App\Models\Brands\Brand;
+use App\Models\Core\Websiteinfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -28,7 +30,9 @@ class CoreController extends Controller
             'message' => 'required'
         ]);
 
-        Mail::to('fernandoarroliga@hotmail.com')->send(new ContactusMail($request->all()));
+        // Send Email
+        $websiteInfo = Websiteinfo::first();
+        Mail::to($websiteInfo->main_mail)->send(new ContactusMail($request->all()));
 
         // Success Send Flash Message
         session()->flash('successEmail', 'The message was send successfully!');
@@ -38,7 +42,10 @@ class CoreController extends Controller
 
     public function brands()
     {
-        return view('pages.brands');
+
+        $brands = Brand::all();
+
+        return view('pages.brands', compact('brands'));
     }
 
 }

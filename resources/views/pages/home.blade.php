@@ -29,9 +29,16 @@
 
         </section>
 
-        <!--<x-sections.home.products />-->
+        {{-- Discounts --}}
+        <livewire:discounts.discount />
 
-        <section class="py-10 px-6">
+        <section class="my-10">
+
+            <livewire:discounts.discount-products />
+
+        </section>
+
+        <section class="py-10 mt-8 px-6">
 
             <div 
                 class="flex flex-col py-10 px-6 md:px-1 space-y-6"

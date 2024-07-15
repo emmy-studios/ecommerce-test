@@ -71,7 +71,7 @@
         @endforeach
     </div>
 
-    <div class="my-8 mx-2">
+    <div class="my-8 mx-10">
         {{ $products->links('vendor.pagination.simple') }}
     </div>
 

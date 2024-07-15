@@ -83,6 +83,13 @@
                                             </p>
                                             <input type="hidden" name="products[{{ $product->id }}][price]" value="{{ $product->unit_price }}">
     
+                                            {{-- Discount --}}
+                                            {{--@if ($discount && $discount->products->contains($product->id))
+                                                <p class="text-base dark:text-red-500 xl:text-lg leading-6">
+                                                    Discounted Price: ${{ $product->unit_price - ($product->unit_price * ($discount->discount_percentage / 100)) }}
+                                                </p>
+                                            @endif--}}
+                                            {{-- Discount --}}
                                             <p class="text-base dark:text-white xl:text-lg leading-6 text-gray-800">
                                                 <input
                                                     class="w-10" 
@@ -112,14 +119,17 @@
                                     class="flex justify-center items-center w-full space-y-4 flex-col border-gray-200 border-b pb-4">
                                     <div class="flex justify-between w-full">
                                         <p class="text-base dark:text-white leading-4 text-gray-800">Subtotal</p>
-                                        <p class="text-base dark:text-gray-300 leading-4 text-gray-600">{{ $subtotal }}</p>
+                                        <p class="text-base dark:text-gray-300 leading-4 text-gray-600">${{ $subtotal }}</p>
                                     </div>
-                                    <!--<div class="flex justify-between items-center w-full">
-                                        <p class="text-base dark:text-white leading-4 text-gray-800">Discount <span
-                                                class="bg-gray-200 p-1 text-xs font-medium dark:bg-white dark:text-gray-800 leading-3 text-gray-800">STUDENT</span>
+                                    <div class="flex justify-between items-center w-full">
+                                        <p class="text-base dark:text-white leading-4 text-gray-800">Discount Code
                                         </p>
-                                        <p class="text-base dark:text-gray-300 leading-4 text-gray-600">-$28.00 (50%)</p>
-                                    </div>-->
+                                        <!--<p class="text-base dark:text-gray-300 leading-4 text-gray-600">-$28.00 (50%)</p>-->
+                                        <input 
+                                            class="w-40 border border-purple-500" 
+                                            type="text"
+                                            name="discount_code">
+                                    </div>
                                     <!--<div class="flex justify-between items-center w-full">
                                         <p class="text-base dark:text-white leading-4 text-gray-800">Shipping</p>
                                         <p class="text-base dark:text-gray-300 leading-4 text-gray-600">$8.00</p>
@@ -130,7 +140,7 @@
                                         Total
                                     </p>
                                     <p class="text-base dark:text-gray-300 font-semibold leading-4 text-gray-600">
-                                        {{ $total }}
+                                        ${{ $total }}
                                     </p>
                                 </div>
                             </div>
@@ -142,7 +152,7 @@
                                     <button
                                         type="submit"
                                         class="hover:bg-purple-500 dark:bg-white dark:text-purple-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-800 py-5 w-96 md:w-full bg-purple-600 text-base font-medium leading-4 text-white">
-                                        Make an Order
+                                        Order by Email
                                     </button>
                                 </div>
                             </div>

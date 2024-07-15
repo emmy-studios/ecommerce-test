@@ -13,86 +13,32 @@
         <section class="flex justify-center my-8">
 
             <div class="flex justify-center flex-wrap gap-5 lg:inline-grid lg:grid-cols-4 xl:grid-cols-5 p-6">
-                
-                <div class="bg-white rounded-lg shadow w-18 h-18 flex justify-center items-center">
-                    <img 
-                        class="h-10" 
-                        src="{{ asset('assets/images/brands/logo/adidas_logo.png') }}" 
-                        alt=""
-                        >
-                </div>
 
-                <div class="bg-white rounded-lg shadow w-18 h-18 flex justify-center items-center">
-                    <img 
-                        class="h-10" 
-                        src="{{ asset('assets/images/brands/logo/converse_logo.png') }}" 
-                        alt=""
-                        >
-                </div>
+                @foreach ($brands as $brand)
 
-                <div class="bg-white rounded-lg shadow w-18 h-18 flex justify-center items-center">
-                    <img 
-                        class="h-10" 
-                        src="{{ asset('assets/images/brands/logo/fila_logo.png') }}" 
-                        alt=""
-                        >
-                </div>
+                    @if($brand->logo_url)
 
-                <div class="bg-white rounded-lg shadow w-18 h-18 flex justify-center items-center">
-                    <img 
-                        class="h-10" 
-                        src="{{ asset('assets/images/brands/logo/gucci_logo.png') }}" 
-                        alt=""
-                        >
-                </div>
+                        <div class="bg-white rounded-lg shadow w-18 h-18 flex justify-center items-center">
+                            <img 
+                                class="h-10" 
+                                src="{{ asset('storage/' . $brand->logo_url) }}" 
+                                alt="{{ $brand->name }} logo image"
+                                >
+                        </div>
+                    
+                    @else
 
-                <div class="bg-white rounded-lg shadow w-18 h-18 flex justify-center items-center">
-                    <img 
-                        class="h-10" 
-                        src="{{ asset('assets/images/brands/logo/lacoste_logo.png') }}" 
-                        alt=""
-                        >
-                </div>
+                        <div class="bg-white rounded-lg shadow w-18 h-18 flex justify-center items-center">
+                            <img 
+                                class="h-10" 
+                                src="{{ asset('assets/images/brands/generic_brand.png') }}" 
+                                alt="{{ $brand->name }} logo image"
+                                >
+                        </div>
 
-                <div class="bg-white rounded-lg shadow w-18 h-18 flex justify-center items-center">
-                    <img 
-                        class="h-10" 
-                        src="{{ asset('assets/images/brands/logo/levis_logo.png') }}" 
-                        alt=""
-                        >
-                </div>
-
-                <div class="bg-white rounded-lg shadow w-18 h-18 flex justify-center items-center">
-                    <img 
-                        class="h-10" 
-                        src="{{ asset('assets/images/brands/logo/nike_logo.png') }}" 
-                        alt=""
-                        >
-                </div>
-
-                <div class="bg-white rounded-lg shadow w-18 h-18 flex justify-center items-center">
-                    <img 
-                        class="h-10" 
-                        src="{{ asset('assets/images/brands/logo/puma_logo.png') }}" 
-                        alt=""
-                        >
-                </div>
-             
-                <div class="bg-white rounded-lg shadow w-18 h-18 flex justify-center items-center">
-                    <img 
-                        class="h-10" 
-                        src="{{ asset('assets/images/brands/logo/vans_logo.png') }}" 
-                        alt=""
-                        >
-                </div>
-
-                <div class="bg-white rounded-lg shadow w-18 h-18 flex justify-center items-center">
-                    <img 
-                        class="h-10" 
-                        src="{{ asset('assets/images/brands/logo/zara_logo.png') }}" 
-                        alt=""
-                        >
-                </div>
+                    @endif
+                    
+                @endforeach
 
             </div>
 

@@ -38,7 +38,10 @@
                         <div class="mt-2">
                             <input id="password"  name="password" type="password" required
                                 class="block w-full rounded-md border-0 bg-white/5 py-1.5 text-purple shadow-sm ring-1 ring-inset ring-purple-500 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6 pl-3">
-                        </div>
+                        </div> 
+                        @if($errors->has('errorCredentials'))
+                            <div class="mt-4 text-sm text-red-600 text-center">{{ $errors->first('errorCredentials') }}</div>
+                        @endif
                     
                     </div>
 

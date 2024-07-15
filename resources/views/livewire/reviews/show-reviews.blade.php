@@ -25,6 +25,11 @@
                         </div>
 
                         <p class="text-gray-600 mt-2">{{ $review->content }}</p>
+                
+                        @if(Auth::id() == $review->user_id)
+                            <livewire:reviews.delete-review :reviewId="$review->id" :wire:key="$review->id"/>
+                        @endif
+                        
                     </div>
 
                 @endforeach

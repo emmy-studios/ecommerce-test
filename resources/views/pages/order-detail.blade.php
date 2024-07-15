@@ -11,7 +11,7 @@
             <div class="w-80 rounded bg-gray-50 px-6 pt-4 shadow-lg">
             
                 <div class="flex flex-col justify-center items-center gap-2">
-                    <h4 class="font-semibold">ecommerce website</h4>
+                    <h4 class="font-semibold">{{ $websiteInfo->website_name }}</h4>
                     <p class="text-xs">{{ $createdAt }}</p>
                 </div>
                 <div class="flex flex-col gap-3 border-b py-6 text-xs">
@@ -47,7 +47,7 @@
                             <tr class="flex">
                                 <th class="w-full py-2">Product</th>
                                 <th class="min-w-[44px] py-2">#</th>
-                                <th class="min-w-[44px] py-2">Total</th>
+                                <th class="min-w-[44px] py-2">Price</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -69,7 +69,7 @@
                     <div class="py-4 justify-center items-center flex flex-col gap-2">
                         <p class="flex gap-2">
                             <i class="fa-solid fa-envelope"></i>
-                            ecommerce@support.com
+                            {{ $websiteInfo->main_mail }}
                         </p>
                         <p class="flex gap-2">
                             <i class="fa-solid fa-mobile-retro"></i>
